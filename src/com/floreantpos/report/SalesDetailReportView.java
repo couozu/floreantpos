@@ -81,8 +81,8 @@ public class SalesDetailReportView extends JPanel {
 			return;
 		}
 		
-		fromDate = DateUtil.startOfDay(fromDate);
-		toDate = DateUtil.endOfDay(toDate);
+		fromDate.setHours(8);
+		toDate.setHours(8);
 		
 		ReportService reportService = new ReportService();
 		SalesDetailedReport report = reportService.getSalesDetailedReport(fromDate, toDate);

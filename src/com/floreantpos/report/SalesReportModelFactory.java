@@ -35,10 +35,12 @@ public class SalesReportModelFactory {
 	public void createModels() {
 		Date currentDate = new Date();
 		if(startDate == null) {
-			startDate = DateUtils.startOfDay(currentDate);
+			startDate = currentDate;
+			startDate.setHours(8);
 		}
 		if(endDate == null) {
-			endDate = DateUtils.endOfDay(currentDate);
+			endDate = currentDate;
+			endDate.setHours(8);
 		}
 		
 		List<Ticket> tickets = TicketDAO.getInstance().findTickets(startDate, endDate, settled);

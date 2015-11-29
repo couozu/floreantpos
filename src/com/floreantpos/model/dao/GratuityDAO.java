@@ -79,8 +79,8 @@ public class GratuityDAO extends BaseGratuityDAO {
 		try {
 			session = getSession();
 			
-			fromDate = DateUtil.startOfDay(fromDate);
-			toDate = DateUtil.endOfDay(toDate);
+			fromDate.setHours(8);
+			toDate.setHours(8);
 			
 			Criteria criteria = session.createCriteria(Ticket.class);
 			//criteria = criteria.createAlias(Ti, "t");

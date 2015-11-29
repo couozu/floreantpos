@@ -76,8 +76,8 @@ public class JournalReportView extends JPanel {
 			return;
 		}
 		
-		fromDate = DateUtil.startOfDay(fromDate);
-		toDate = DateUtil.endOfDay(toDate);
+		fromDate.setHours(8);
+		toDate.setHours(8);
 		
 		ReportService reportService = new ReportService();
 		JournalReportModel report = reportService.getJournalReport(fromDate, toDate);

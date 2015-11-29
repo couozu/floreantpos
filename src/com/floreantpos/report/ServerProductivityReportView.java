@@ -76,8 +76,8 @@ public class ServerProductivityReportView extends JPanel {
 			return;
 		}
 		
-		fromDate = DateUtil.startOfDay(fromDate);
-		toDate = DateUtil.endOfDay(toDate);
+		fromDate.setHours(8);
+		toDate.setHours(8);
 		
 		ReportService reportService = new ReportService();
 		ServerProductivityReport report = reportService.getServerProductivityReport(fromDate, toDate);

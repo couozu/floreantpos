@@ -81,8 +81,8 @@ public class CreditCardReportView extends JPanel {
 			return;
 		}
 		
-		fromDate = DateUtil.startOfDay(fromDate);
-		toDate = DateUtil.endOfDay(toDate);
+		fromDate.setHours(8);
+		toDate.setHours(8);
 		
 		Date currentTime = new Date();
 		

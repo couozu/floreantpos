@@ -112,8 +112,8 @@ public class DrawerPullReportExplorer extends TransparentPanel {
 			Date fromDate = fromDatePicker.getDate();
 			Date toDate = toDatePicker.getDate();
 
-			fromDate = DateUtil.startOfDay(fromDate);
-			toDate = DateUtil.endOfDay(toDate);
+			fromDate.setHours(8);
+			toDate.setHours(8);
 
 			List<DrawerPullReport> list = new DrawerPullReportDAO().findReports(fromDate, toDate);
 			table.setModel(new DrawerPullExplorerTableModel(list));
