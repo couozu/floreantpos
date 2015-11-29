@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<printers>
+    <defaultKitchenPrinter>
+        <defaultPrinter>false</defaultPrinter>
+        <deviceName>TH230</deviceName>
+        <virtualPrinter>
+            <id>1</id>
+            <name>TH230</name>
+        </virtualPrinter>
+    </defaultKitchenPrinter>
+    <kitchenPrinters>
+        <defaultPrinter>false</defaultPrinter>
+        <deviceName>TH230</deviceName>
+        <virtualPrinter>
+            <id>1</id>
+            <name>TH230</name>
+        </virtualPrinter>
+    </kitchenPrinters>
+    <receiptPrinter>TH230</receiptPrinter>
+    <reportPrinter>TH230</reportPrinter>
+</printers>
