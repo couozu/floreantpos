@@ -137,7 +137,20 @@ public class SalesReport extends Report {
 								modifierMap.put(key, modifierReportItem);
 							}
 							modifierReportItem.setQuantity(modifierReportItem.getQuantity() + 1);
-							//modifierReportItem.setTotal(modifierReportItem.getTotal() + modifier.getTotal());
+							modifierReportItem.setTotal(modifierReportItem.getTotal() + modifier.getTotalAmount());
+
+                            ReportItem reportItem1 = itemMap.get(key);
+                            if (reportItem1 == null) {
+                                reportItem1 = new ReportItem();
+                                reportItem1.setId(key);
+                                reportItem1.setPrice(modifier.getUnitPrice());
+                                reportItem1.setName(modifier.getName());
+                                reportItem1.setTaxRate(modifier.getTaxRate());
+
+                                itemMap.put(key, reportItem1);
+                            }
+                            reportItem1.setQuantity(reportItem1.getQuantity() + 1);
+                            reportItem1.setTotal(reportItem1.getTotal() + modifier.getTotalAmount());
 						}
 					}
 				}
