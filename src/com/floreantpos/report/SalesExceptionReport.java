@@ -82,6 +82,20 @@ public class SalesExceptionReport {
 		}
 	}
 
+	public void addCouponAndDiscountData(TicketCouponAndDiscount ticketCouponAndDiscount) {
+		String name = ticketCouponAndDiscount.getName();
+		DiscountData discountData = disountMap.get(ticketCouponAndDiscount.getCouponAndDiscountId());
+		if (discountData == null) {
+			discountData = new DiscountData();
+			discountData.code = ticketCouponAndDiscount.getCouponAndDiscountId();
+			discountData.name = name;
+			disountMap.put(ticketCouponAndDiscount.getCouponAndDiscountId(), discountData);
+		}
+
+		discountData.totalCount = ++discountData.totalCount;
+		discountData.totalDiscount = discountData.totalDiscount + ticketCouponAndDiscount.getValue();
+	}
+
 	public static class VoidData {
 		Integer id;
 		private String reasonCode;

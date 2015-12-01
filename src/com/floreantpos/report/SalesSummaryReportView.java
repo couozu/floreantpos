@@ -155,7 +155,7 @@ public class SalesSummaryReportView extends javax.swing.JPanel {
 		calendar.set(Calendar.YEAR, calendar2.get(Calendar.YEAR));
 		calendar.set(Calendar.MONTH, calendar2.get(Calendar.MONTH));
 		calendar.set(Calendar.DATE, calendar2.get(Calendar.DATE));
-		calendar.set(Calendar.HOUR, 0);
+		calendar.set(Calendar.HOUR, 8);
 		calendar.set(Calendar.MINUTE, 0);
 		calendar.set(Calendar.SECOND, 0);
 		fromDate = calendar.getTime();
@@ -165,9 +165,9 @@ public class SalesSummaryReportView extends javax.swing.JPanel {
 		calendar.set(Calendar.YEAR, calendar2.get(Calendar.YEAR));
 		calendar.set(Calendar.MONTH, calendar2.get(Calendar.MONTH));
 		calendar.set(Calendar.DATE, calendar2.get(Calendar.DATE));
-		calendar.set(Calendar.HOUR, 23);
-		calendar.set(Calendar.MINUTE, 59);
-		calendar.set(Calendar.SECOND, 59);
+		calendar.set(Calendar.HOUR, 8);
+		calendar.set(Calendar.MINUTE, 0);
+		calendar.set(Calendar.SECOND, 0);
 		toDate = calendar.getTime();
 
 		return true;

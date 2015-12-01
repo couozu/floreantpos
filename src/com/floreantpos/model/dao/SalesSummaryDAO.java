@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.xpath.operations.Bool;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.ProjectionList;
@@ -75,6 +76,7 @@ public class SalesSummaryDAO extends _RootDAO {
 			criteria.add(Restrictions.eq("item." + TicketItem.PROP_BEVERAGE, Boolean.FALSE));
 			criteria.add(Restrictions.ge("t." + Ticket.PROP_ACTIVE_DATE, start));
 			criteria.add(Restrictions.le("t." + Ticket.PROP_ACTIVE_DATE, end));
+			criteria.add(Restrictions.eq("t." + Ticket.PROP_VOIDED, Boolean.FALSE));
 
 			if (userType != null) {
 				criteria.add(Restrictions.eq("u." + User.PROP_TYPE, userType));
@@ -115,6 +117,7 @@ public class SalesSummaryDAO extends _RootDAO {
 			criteria.add(Restrictions.eq("item." + TicketItem.PROP_BEVERAGE, Boolean.TRUE));
 			criteria.add(Restrictions.ge("t." + Ticket.PROP_ACTIVE_DATE, start));
 			criteria.add(Restrictions.le("t." + Ticket.PROP_ACTIVE_DATE, end));
+			criteria.add(Restrictions.eq("t." + Ticket.PROP_VOIDED, Boolean.FALSE));
 
 			if (userType != null) {
 				criteria.add(Restrictions.eq("u." + User.PROP_TYPE, userType));
@@ -160,6 +163,7 @@ public class SalesSummaryDAO extends _RootDAO {
 					criteria.add(Restrictions.eq("t." + Ticket.PROP_SHIFT, shift));
 					criteria.add(Restrictions.ge("t." + Ticket.PROP_ACTIVE_DATE, start));
 					criteria.add(Restrictions.le("t." + Ticket.PROP_ACTIVE_DATE, end));
+					criteria.add(Restrictions.eq("t." + Ticket.PROP_VOIDED, Boolean.FALSE));
 
 					if (userType != null) {
 						criteria.add(Restrictions.eq("u." + User.PROP_TYPE, userType));
@@ -204,6 +208,7 @@ public class SalesSummaryDAO extends _RootDAO {
 				criteria.add(Restrictions.eq("item." + TicketItem.PROP_CATEGORY_NAME, category.getName()));
 				criteria.add(Restrictions.ge("t." + Ticket.PROP_ACTIVE_DATE, start));
 				criteria.add(Restrictions.le("t." + Ticket.PROP_ACTIVE_DATE, end));
+				criteria.add(Restrictions.eq("t." + Ticket.PROP_VOIDED, Boolean.FALSE));
 
 				if (userType != null) {
 					criteria.add(Restrictions.eq("u." + User.PROP_TYPE, userType));
@@ -521,6 +526,7 @@ public class SalesSummaryDAO extends _RootDAO {
 		criteria.add(Restrictions.ge(Ticket.PROP_CREATE_DATE, start));
 		criteria.add(Restrictions.le(Ticket.PROP_CREATE_DATE, end));
 		criteria.add(Restrictions.eq(Ticket.PROP_SHIFT, shift));
+		criteria.add(Restrictions.eq(Ticket.PROP_VOIDED, Boolean.FALSE));
 		criteria.add(Restrictions.eq(Ticket.PROP_TICKET_TYPE, ticketType.name()));
 
 		if (userType != null) {

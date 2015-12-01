@@ -5,27 +5,13 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import com.floreantpos.model.*;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
-import com.floreantpos.model.ActionHistory;
-import com.floreantpos.model.CashTransaction;
-import com.floreantpos.model.CouponAndDiscount;
-import com.floreantpos.model.CreditCardTransaction;
-import com.floreantpos.model.DebitCardTransaction;
-import com.floreantpos.model.DrawerPullReport;
-import com.floreantpos.model.GiftCertificateTransaction;
-import com.floreantpos.model.Gratuity;
-import com.floreantpos.model.MenuCategory;
-import com.floreantpos.model.PayOutTransaction;
-import com.floreantpos.model.PosTransaction;
-import com.floreantpos.model.Ticket;
-import com.floreantpos.model.TicketItem;
-import com.floreantpos.model.TransactionType;
-import com.floreantpos.model.User;
 import com.floreantpos.model.dao.CouponAndDiscountDAO;
 import com.floreantpos.model.dao.GenericDAO;
 import com.floreantpos.report.JournalReportModel;
@@ -516,6 +502,22 @@ public class ReportService {
 				Ticket ticket = (Ticket) iter.next();
 				report.addDiscountData(ticket);
 			}
+
+			criteria = session.createCriteria(TicketCouponAndDiscount.class);
+			//criteria.createCriteria("ticket_id", "t");
+			//criteria.add(Restrictions.ge("t." + Ticket.PROP_ACTIVE_DATE, fromDate));
+			//criteria.add(Restrictions.le("t." + Ticket.PROP_ACTIVE_DATE, toDate));
+			//criteria.add(Restrictions.eq("t." + Ticket.PROP_VOIDED, Boolean.FALSE));
+
+			list = criteria.list();
+			for (Iterator iter = list.iterator(); iter.hasNext();) {
+				TicketCouponAndDiscount ticket = (TicketCouponAndDiscount) iter.next();
+				report.addCouponAndDiscountData(ticket);
+			}
+
+
+
+
 			
 			//find all valid discounts
 			CouponAndDiscountDAO discountDAO = new CouponAndDiscountDAO();
