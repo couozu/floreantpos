@@ -139,6 +139,7 @@ public class SalesReport extends Report {
 							modifierReportItem.setQuantity(modifierReportItem.getQuantity() + 1);
 							modifierReportItem.setTotal(modifierReportItem.getTotal() + modifier.getTotalAmount());
 
+/*
                             ReportItem reportItem1 = itemMap.get(key);
                             if (reportItem1 == null) {
                                 reportItem1 = new ReportItem();
@@ -151,6 +152,7 @@ public class SalesReport extends Report {
                             }
                             reportItem1.setQuantity(reportItem1.getQuantity() + 1);
                             reportItem1.setTotal(reportItem1.getTotal() + modifier.getTotalAmount());
+*/
 						}
 					}
 				}
