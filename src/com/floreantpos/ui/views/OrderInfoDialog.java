@@ -27,14 +27,14 @@ public class OrderInfoDialog extends POSDialog {
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.SOUTH);
 		
-		PosButton btnPrint = new PosButton();
+		/*PosButton btnPrint = new PosButton();
 		btnPrint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				doPrint();
 			}
 		});
 		btnPrint.setText("PRINT");
-		panel.add(btnPrint);
+		panel.add(btnPrint);*/
 		
 		PosButton btnClose = new PosButton();
 		btnClose.addActionListener(new ActionListener() {
